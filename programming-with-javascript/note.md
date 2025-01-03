@@ -53,6 +53,7 @@ Boolean(document.all) // false
 ## Defensive Programming
 
 Defensive programming is all about assuming that all the arguments a function will receive are of the wrong type, the wrong value or both.
+It then becomes important to verify the type and values of the parameters before using them in the function
 
 ## Difference b/w Functional and Object-oriented programming
 
@@ -266,3 +267,92 @@ for(let prop of Object.keys(person1)) {
 | --- | --- |
 |Not iterable| Iterable|
 |Keys can only be strings or symbols| Keys can be any data type|
+|Has prototypes| No prototypes|
+
+## ServerJS / CommonJS
+
+- Modules were added to ECMAScript ES6 specification
+- Started by Mozilla engineer Kevin Dangoor in January, 2009
+- Designed to specify how JS modules should work outside a browser environment, e.g: Node.js
+
+```html
+<!-- This HTML, and accompanying JS file must be run from a server to prevent CORS issues -->
+<!DOCTYPE>
+<html>
+  <head></head>
+  <body>
+    <h1>Hello</h1>
+
+    <script type="module">
+      import animal, {greeting} from "./animal.js";
+      console.log(greeting, animal);
+    </script>
+  </body>
+</html>
+
+```
+
+## Refactoring
+
+Updating code without affecting the results it produces, either to improve efficiency or readability
+
+## Testing
+
+### Testing Types
+
+#### e2e testing: Cypress, Protractor, WebdriverJS
+
+- Test like an end-user will in real-life.
+- Slowest.
+- Takes the most time to setup and run.
+
+#### Integration testing: RTL, Enzyme
+
+- Tests how separate parts of an application works together
+
+#### Unit test
+
+- Tests smallest units(functions) of code in isolation
+
+### Mocking
+
+- Separating code from related dependencies during testing
+
+### Snapshot Testing
+
+- Used by web developers to verify that there are no regressions in the DOM after some changes to the codebase are made
+
+### Test-Driven Development(TDD): Red - Green - Refactor
+
+A streamlined process of writing code that will satisfy some requirements
+![TDD vs Traditional Development](https://i.ibb.co/2c8X8qz/Screenshot-2025-01-03-at-14-17-17.png)
+
+TDD:
+
+- minimizes regression
+- allows for implementations to be tested using various inputs
+
+### Stress Testing
+
+- Testing the behaviour of the app under extreme conditions
+
+### Code Coverage
+
+- Let's you know where more testing may be required
+
+## Hoisting
+
+Hoisting will make the first code block run lie the second code block
+Such that the console.log will return 5 instead of undefined.
+
+```js
+var help;
+console.log(help);
+help = 5;
+```
+
+```js
+var help;
+help = 5;
+console.log(help);
+```
